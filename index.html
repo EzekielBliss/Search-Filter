@@ -62,7 +62,7 @@
     "CHICKEN",
   ];
   function searchFood() {
-    let matchedFood = foodSearch.value.toUpperCase();
+    let matchedFood = foodSearch.value.toUpperCase().trim();
     let foods = foodStuff.filter((food) => {
       return food.includes(matchedFood);
     });
