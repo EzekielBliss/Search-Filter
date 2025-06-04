@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Filter</title>
+    <link rel="stylesheet" href="filter.css">
+  </head>
+  <body>
+    <main>
+      <input type="search" oninput="searchFood()" id="foodSearch" />
+      <div id="display">
+        <button>ONION</button>
+        <button>GARRI</button>
+        <button>RICE</button>
+        <button>PASTA</button>
+        <button>BEANS</button>
+        <button>YAM</button>
+        <button>PLANTAIN</button>
+        <button>EGG</button>
+        <button>FISH</button>
+        <button>MEAT</button>
+        <button>TOMATO</button>
+        <button>PEPPER</button>
+        <button>OIL</button>
+        <button>SALT</button>
+        <button>SUGAR</button>
+        <button>BREAD</button>
+        <button>MILK</button>
+        <button>BUTTER</button>
+        <button>CHEESE</button>
+        <button>CHICKEN</button>
+      </div>
+    </main>
+  </body>
+</html>
+<script>
+  let foodSearch = document.getElementById("foodSearch");
+  let display = document.getElementById("display");
+
+  //   let foodStuffs = foodStuff.toLowerCase()
+  let foodStuff = [
+    "ONION",
+    "GARRI",
+    "RICE",
+    "PASTA",
+    "BEANS",
+    "YAM",
+    "PLANTAIN",
+    "EGG",
+    "FISH",
+    "MEAT",
+    "TOMATO",
+    "PEPPER",
+    "OIL",
+    "SALT",
+    "SUGAR",
+    "BREAD",
+    "MILK",
+    "BUTTER",
+    "CHEESE",
+    "CHICKEN",
+  ];
+  function searchFood() {
+    let matchedFood = foodSearch.value.toUpperCase();
+    let foods = foodStuff.filter((food) => {
+      return food.includes(matchedFood);
+    });
+
+    display.innerHTML = "";
+
+    foods.forEach((items) => {
+      display.innerHTML += `<button>${items}</button>`;
+    });
+
+    if (foods.length === 0) {
+      display.innerHTML = "Food not available";
+    }
+  }
+</script>
